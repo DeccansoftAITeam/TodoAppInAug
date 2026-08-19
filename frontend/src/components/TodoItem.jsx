@@ -1,6 +1,5 @@
 import { useState } from 'react'
-
-const CATEGORIES = ['official', 'personal', 'general']
+import { CATEGORIES } from '../constants/categories'
 
 function TodoItem({ todo, onUpdate, onToggle, onDelete }) {
   // Local edit state keeps the inline form isolated from the parent list.

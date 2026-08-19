@@ -1,6 +1,5 @@
 import { useState } from 'react'
-
-const CATEGORIES = ['official', 'personal', 'general']
+import { CATEGORIES } from '../constants/categories'
 
 function TodoForm({ onCreate }) {
   // Keep the form controlled so validation and resets stay predictable.
