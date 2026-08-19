@@ -18,14 +18,16 @@ class TodoService:
         todo = self.repository.create(
             title=todo_data.title,
             description=todo_data.description,
+            category=todo_data.category.value,
         )
         return Todo.model_validate(todo)
 
     def update_todo(self, todo_id: str, todo_data: TodoUpdate) -> Todo | None:
         todo = self.repository.update(
-            todo_id=todo_id,
+            my_todo_id=todo_id,
             title=todo_data.title,
             description=todo_data.description,
+            category=todo_data.category.value,
         )
         if todo is None:
             return None

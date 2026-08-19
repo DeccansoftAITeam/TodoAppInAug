@@ -18,11 +18,12 @@ class TodoRepository:
                 return todo
         return None
 
-    def create(self, title: str, description: str | None = None) -> dict:
+    def create(self, title: str, description: str | None = None, category: str = "general") -> dict:
         new_todo = {
             "id": str(len(self.todos) + 1),
             "title": title,
             "description": description,
+            "category": category,
             "date_created": datetime.now(timezone.utc),
             "is_completed": False,
         }
@@ -34,6 +35,7 @@ class TodoRepository:
         my_todo_id: str,
         title: str,
         description: str | None = None,
+        category: str = "general",
     ) -> dict | None:
         todo = self.get_by_id(my_todo_id)
         if todo is None:
@@ -41,6 +43,7 @@ class TodoRepository:
 
         todo["title"] = title
         todo["description"] = description
+        todo["category"] = category
         return todo
 
     def update_status(self, my_todo_id: str, is_completed: bool) -> dict | None:
