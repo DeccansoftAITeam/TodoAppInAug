@@ -1,0 +1,145 @@
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  font-family: Arial, sans-serif;
+}
+
+header h1,
+.todo-section h2,
+.todo-form h2 {
+  color: #1f2937;
+}
+
+.todo-form {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.todo-form label {
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.todo-form input,
+.todo-form textarea,
+.todo-edit-form input,
+.todo-edit-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.todo-form textarea,
+.todo-edit-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.todo-form button,
+.todo-actions button {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #2563eb;
+  color: white;
+}
+
+.todo-form button {
+  margin-top: 8px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: white;
+}
+
+.todo-item.completed {
+  opacity: 0.7;
+}
+
+.todo-item-main {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.todo-item-main input[type='checkbox'] {
+  margin-top: 6px;
+  transform: scale(1.3);
+}
+
+.todo-details {
+  flex: 1;
+}
+
+.todo-details h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.todo-details p {
+  margin: 0 0 8px;
+  color: #4b5563;
+}
+
+.todo-details small {
+  color: #6b7280;
+}
+
+.todo-edit-form {
+  flex: 1;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.todo-actions .secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.todo-actions .danger {
+  background: #dc2626;
+}
+
+@media (max-width: 640px) {
+  .todo-item {
+    flex-direction: column;
+  }
+
+  .todo-actions {
+    width: 100%;
+  }
+
+  .todo-actions button {
+    flex: 1;
+  }
+}
