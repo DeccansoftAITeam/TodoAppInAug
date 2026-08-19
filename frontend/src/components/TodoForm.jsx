@@ -1,9 +1,12 @@
 import { useState } from 'react'
 
+const CATEGORIES = ['official', 'personal', 'general']
+
 function TodoForm({ onCreate }) {
   // Keep the form controlled so validation and resets stay predictable.
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [category, setCategory] = useState('general')
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -18,10 +21,12 @@ function TodoForm({ onCreate }) {
     onCreate({
       title: trimmedTitle,
       description: description.trim(),
+      category,
     })
 
     setTitle('')
     setDescription('')
+    setCategory('general')
   }
 
   return (
@@ -44,6 +49,17 @@ function TodoForm({ onCreate }) {
           onChange={(event) => setDescription(event.target.value)}
           placeholder="Optional description"
         />
+      </label>
+
+      <label>
+        Category
+        <select value={category} onChange={(event) => setCategory(event.target.value)}>
+          {CATEGORIES.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </option>
+          ))}
+        </select>
       </label>
 
       <button type="submit">Add Todo</button>

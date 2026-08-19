@@ -1,8 +1,15 @@
 """Pydantic schemas for todo requests and responses."""
 
 from datetime import datetime
+from enum import Enum
 
 from pydantic import BaseModel, Field, field_validator
+
+
+class CategoryEnum(str, Enum):
+    official = "official"
+    personal = "personal"
+    general = "general"
 
 
 class TodoBase(BaseModel):
@@ -10,6 +17,7 @@ class TodoBase(BaseModel):
 
     title: str = Field(..., min_length=1)
     description: str | None = None
+    category: CategoryEnum = CategoryEnum.general
 
     @field_validator("title")
     @classmethod
